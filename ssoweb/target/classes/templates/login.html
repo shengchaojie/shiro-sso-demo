@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <p>hello world</p>
+    <form>
+        <input type="text" id="username" name="username">
+        <input type="password" id="password" name="password"/>
+        <input type="hidden" id="redirectUrl" th:value="${redirectUrl}"/>
+        <input type="submit" id="loginButton" value="登录"/>
+    </form>
+    <script>
+
+        $(function () {
+            $('#loginButton').click(function (event) {
+                event.preventDefault()
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var redirectUrl = $('#redirectUrl').val();
+                $.post("/login",{
+                    username:username,
+                    password:password
+                },function (result) {
+                    console.log(JSON.stringify(result));
+                    if(result.flag==true){
+                        window.location.href=redirectUrl;
+                    }
+                },"json")
+            })
+        })
+    </script>
+</body>
+</html>
