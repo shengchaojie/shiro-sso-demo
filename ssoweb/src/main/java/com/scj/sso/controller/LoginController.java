@@ -1,6 +1,7 @@
 package com.scj.sso.controller;
 
 import com.scj.sso.WebResult;
+import com.scj.sso.core.Principal;
 import io.lettuce.core.dynamic.annotation.Param;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -28,8 +29,15 @@ public class LoginController {
 
     @GetMapping(value = {"","login"})
     public ModelAndView loginPage(@Param("redirectUrl")String redirectUrl){
+        redirectUrl=redirectUrl==null?successUrl:redirectUrl;
+        Subject subject = SecurityUtils.getSubject();
+        if(subject.isAuthenticated()){
+            return new ModelAndView("redirect:"+redirectUrl);
+        }
+
+
         ModelAndView modelAndView = new ModelAndView("login");
-        modelAndView.addObject("redirectUrl",redirectUrl==null?successUrl:redirectUrl);
+        modelAndView.addObject("redirectUrl",redirectUrl);
         return modelAndView;
     }
 
@@ -50,5 +58,15 @@ public class LoginController {
         return new WebResult(null,true);
     }
 
+    @GetMapping("/loginUser")
+    @ResponseBody
+    public WebResult loginUser(){
+        Subject subject = SecurityUtils.getSubject();
+        Principal principal = (Principal) subject.getPrincipal();
+        if(principal==null){
+            return new WebResult(null,false);
+        }
+        return new WebResult(principal,true);
+    }
 
 }
