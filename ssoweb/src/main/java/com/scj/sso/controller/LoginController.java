@@ -69,4 +69,10 @@ public class LoginController {
         return new WebResult(principal,true);
     }
 
+    @GetMapping("/logout")
+    public String logout(@Param("redirectUrl")String redirectUrl){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "redirect:/login?redirectUrl="+redirectUrl;
+    }
 }

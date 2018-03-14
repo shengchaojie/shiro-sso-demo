@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <p>前后端分离-当前登陆用户</p>
+    <p id="username"></p>
+    <p id="telephone"></p>
+    <a href="http://sso.scj.com/logout?redirectUrl=http://app2.scj.com">登出</a>
+</body>
+<script>
+    $(function () {
+        $.ajax({
+            url:'http://sso.scj.com/loginUser',
+            crossDomain:true,
+            xhrFields: {
+                withCredentials: true
+            },
+            dataType:'json',
+            type:'GET',
+            success:function (result) {
+                if(result.flag ==true){
+                    $('#username').text(result.object.username)
+                    $('#telephone').text(result.object.telephone)
+
+                }else{
+                    alert(JSON.stringify(result))
+                    window.location.href="http://sso.scj.com?redirectUrl=http://app2.scj.com"
+                }
+            }
+        })
+
+        /*$.get('http://sso.scj.com/loginUser',function (result) {
+            if(result.flag ==true){
+                $('#username').val(result.object.username)
+                $('#telephone').val(result.object.telephone)
+
+            }else{
+                alert(JSON.stringify(result))
+                window.location.href="http://sso.scj.com?redirectUrl=http://app2.scj.com"
+            }
+        },"json")*/
+    })
+</script>
+</html>

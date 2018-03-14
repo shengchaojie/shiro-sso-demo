@@ -7,14 +7,16 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.0.RELEASE</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scj.sso</groupId>
+    <artifactId>application2</artifactId>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>com.scj.sso</groupId>
@@ -22,16 +24,8 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
     </dependencies>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>sso-web</artifactId>
-
-
-
 </project>
