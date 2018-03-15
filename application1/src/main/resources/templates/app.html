@@ -7,4 +7,23 @@
     <p th:text="${username}"></p>
     <p th:text="${phone}"></p>
     <a href="http://sso.scj.com/logout?redirectUrl=http://app1.scj.com">登出</a>
+    <input type="button" id="test" value="test" />
 </body>
+<script>
+    $(function () {
+        $('#test').click(function () {
+            $.get("/test",function(result){
+                if(result.flag==true){
+                    alert(result.data)
+                }else{
+                    if(result.code==501){
+                        window.location.href="http://sso.scj.com?redirectUrl=http://app1.scj.com"
+                    }else{
+                        alert(result.message)
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>
