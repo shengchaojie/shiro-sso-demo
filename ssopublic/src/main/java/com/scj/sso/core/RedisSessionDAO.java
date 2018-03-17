@@ -46,6 +46,9 @@ public class RedisSessionDAO extends AbstractSessionDAO{
             @Override
             public Object doInRedis(RedisConnection connection) throws DataAccessException {
                 byte[] bytes = connection.hGet(REDIS_SESSION_KEY.getBytes(),serializable.toString().getBytes());
+                if(bytes==null){
+                    return null;
+                }
                 return serialization.deseralize(bytes);
             }
         });
