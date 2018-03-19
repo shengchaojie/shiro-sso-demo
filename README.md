@@ -69,3 +69,8 @@ app1 模拟jsp页面(后端渲染)
 app2 模拟前后端分离  
 
 ### 4.相关文章
+[基于Shiro实现的单点登陆系统](https://www.jianshu.com/p/611b19dbfb04)
+[使用Shiro开发免登录功能](https://www.jianshu.com/p/4c32e29bfb3b)
+
+### 5.我的公众号
+![](https://upload-images.jianshu.io/upload_images/9919411-cdb3cba0f4d6d039..jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/258)
