@@ -73,4 +73,4 @@ app2 模拟前后端分离
 [使用Shiro开发免登录功能](https://www.jianshu.com/p/4c32e29bfb3b)
 
 ### 5.我的公众号
-![](https://upload-images.jianshu.io/upload_images/9919411-cdb3cba0f4d6d039..jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/258)
+![公众号](http://oyma3n255.bkt.clouddn.com/qrcode_for_gh_0110f409c9eb_344.jpg)
