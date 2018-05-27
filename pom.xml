@@ -10,9 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>ssopublic</module>
-        <module>ssoweb</module>
-        <module>application1</module>
-        <module>application2</module>
     </modules>
 
 
