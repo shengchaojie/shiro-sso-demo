@@ -36,13 +36,13 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">账号:</label>
                 <div class="layui-input-block">
-                    <input type="text" id="username" name="username" class="layui-input">
+                    <input type="text" lay-verify="required" id="username" name="username" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">密码:</label>
                 <div class="layui-input-block">
-                    <input type="password" id="password" name="password" class="layui-input"/>
+                    <input type="password" lay-verify="required" id="password" name="password" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -60,16 +60,14 @@
     </div>
 
     <script>
+        layui.use('form', function(){
+            var form = layui.form;
 
-        $(function () {
-            $('#loginButton').click(function (event) {
-                event.preventDefault()
-                var username = $('#username').val();
-                var password = $('#password').val();
-                var redirectUrl = $('#redirectUrl').val();
+            //监听提交
+            form.on('submit(formDemo)', function(data){
                 $.post("/login",{
-                    username:username,
-                    password:password
+                    username:data.field.username,
+                    password:data.field.password
                 },function (result) {
                     console.log(JSON.stringify(result));
                     if(result.flag==true){
@@ -78,8 +76,9 @@
                         layer.msg(result.message)
                     }
                 },"json")
-            })
-        })
+                return false;
+            });
+        });
     </script>
 </body>
 </html>
