@@ -1,15 +1,64 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/layui/layui.all.js" ></script>
+    <link rel="stylesheet" href="/layui/css/layui.css"/>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background: url("/pic/avenge.jpg");
+        }
+
+        .login-container{
+            width:500px;
+            height: 200px;
+            padding: 20px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            margin-top:-100px;
+        }
+
+        .right{
+            float:right;
+        }
+    </style>
 </head>
 <body>
-    <p>hello world</p>
-    <form>
-        <input type="text" id="username" name="username">
-        <input type="password" id="password" name="password"/>
-        <input type="hidden" id="redirectUrl" th:value="${redirectUrl}"/>
-        <input type="submit" id="loginButton" value="登录"/>
-    </form>
+    <div class="login-container">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">账号:</label>
+                <div class="layui-input-block">
+                    <input type="text" id="username" name="username" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码:</label>
+                <div class="layui-input-block">
+                    <input type="password" id="password" name="password" class="layui-input"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn right" id="loginButton" lay-submit lay-filter="formDemo">登陆</button>
+                </div>
+            </div>
+            <input type="hidden" id="redirectUrl" th:value="${redirectUrl}"/>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <p>账号:scj 密码:123456</p>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <script>
 
         $(function () {
@@ -25,6 +74,8 @@
                     console.log(JSON.stringify(result));
                     if(result.flag==true){
                         window.location.href=redirectUrl;
+                    }else{
+                        layer.msg(result.message)
                     }
                 },"json")
             })

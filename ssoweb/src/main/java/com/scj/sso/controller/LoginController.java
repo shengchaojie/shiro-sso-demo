@@ -90,7 +90,7 @@ public class LoginController {
             subject.login(usernamePasswordToken);
         }catch(Exception ex){
             logger.error("登录失败",ex);
-            return new WebResult(null,false);
+            return new WebResult(null,false,"用户名或密码错误");
         }
 
         return new WebResult(null,true);

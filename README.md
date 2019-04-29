@@ -1,4 +1,9 @@
 ## Shiro实现的单点登录Demo
+### 技术栈
+1. springboot
+2. shiro
+3. redis
+4. nginx
 ### 配置
 #### Host配置
 ````
@@ -7,6 +12,7 @@
   127.0.0.1    app2.scj.com
 ````
 #### nginx配置
+使用nginx是为了让上面host的访问都是通过80端口，也就是不需要输入端口来访问
 ````
 server {
         listen 80;

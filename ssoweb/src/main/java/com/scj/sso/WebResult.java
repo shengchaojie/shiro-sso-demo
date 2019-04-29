@@ -22,4 +22,10 @@ public class WebResult<T> {
         this.object = object;
         this.flag = flag;
     }
+
+    public WebResult(T object, boolean flag,String message){
+        this.object = object;
+        this.flag = flag;
+        this.message =message;
+    }
 }
