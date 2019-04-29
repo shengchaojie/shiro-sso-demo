@@ -96,6 +96,12 @@ public class LoginController {
         return new WebResult(null,true);
     }
 
+    /**
+     * 这个接口用来查询当前登陆用户
+     * 用来给前后端分离的页面查询当前是否登陆
+     * 如果没有登陆跳转到sso页面
+     * @return
+     */
     @GetMapping("/loginUser")
     @ResponseBody
     public WebResult loginUser(){
