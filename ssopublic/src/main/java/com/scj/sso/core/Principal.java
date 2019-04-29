@@ -4,6 +4,10 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * 用户信息载体
+ * 这个其实就相当于session
+ */
 @Data
 public class Principal implements Serializable{
 

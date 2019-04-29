@@ -6,6 +6,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * 序列化默认用JDK
+ */
 public class JDKSerialization implements Serialization {
     @Override
     public byte[] seralize(Object t) {

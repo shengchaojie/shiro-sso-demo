@@ -16,6 +16,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 因为是SSO是跨进程的
+ * 所以必须用redis这种独立的缓存
+ */
 public class RedisSessionDAO extends AbstractSessionDAO{
 
     private static final String REDIS_SESSION_KEY ="SSO:REDIS_SESSION_KEY";
