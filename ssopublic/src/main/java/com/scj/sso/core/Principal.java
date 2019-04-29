@@ -1,7 +1,10 @@
 package com.scj.sso.core;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class Principal implements Serializable{
 
     private Long userId;
@@ -10,27 +13,4 @@ public class Principal implements Serializable{
 
     private String telephone;
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
 }

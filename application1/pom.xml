@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.scj.sso</groupId>
+    <groupId>com.scj</groupId>
     <artifactId>application1</artifactId>
     <version>1.0.0.SNAPSHOT</version>
     <dependencies>
