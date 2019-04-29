@@ -62,7 +62,7 @@
     <script>
         layui.use('form', function(){
             var form = layui.form;
-
+            var redirectUrl = $('#redirectUrl').val();
             //监听提交
             form.on('submit(formDemo)', function(data){
                 $.post("/login",{
